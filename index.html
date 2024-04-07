@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile Cards</title>
+<style>
+  /* Styles for profile cards */
+  #profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .profile-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px; /* Added margin for spacing */
+    width: 300px;
+  }
+
+  .profile-card img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+
+  .profile-card h2 {
+    margin-bottom: 5px;
+  }
+
+  .profile-card p {
+    margin: 0;
+  }
+  
+</style>
+</head>
+<body>
+
+<div id="profile-container"></div>
+
+<script>
+  // Dummy data for profiles
+  const profiles = [
+    {
+      name: "Biryani",
+      age: 200,
+      bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      image: "biryani.jpg"
+    },
+    {
+      name: "Masala Dosa ",
+      age: 100,
+      bio: "Praesent vestibulum est vitae ligula lobortis, ac tempor leo fringilla.",
+      image: "dosa.jpg"
+    },
+    {
+      name: "Samosa",
+      age: 50,
+      bio: "Praesent vestibulum est vitae ligula lobortis, ac tempor leo fringilla.",
+      image: "food.jpg"
+    },
+    {
+      name: "Chicken KFC",
+      age: 400,
+      bio: "Praesent vestibulum est vitae ligula lobortis, ac tempor leo fringilla.",
+      image: "images.jpeg"
+    },
+    {
+      name: "Manchuriyan",
+      age: 100,
+      bio: "Praesent vestibulum est vitae ligula lobortis, ac tempor leo fringilla.",
+      image: "manchuriyan.jpg"
+    },
+    {
+      name: "Puri Bhaji",
+      age: 150,
+      bio: "Praesent vestibulum est vitae ligula lobortis, ac tempor leo fringilla.",
+      image: "puri bhaji.jpg"
+    }
+  ];
+
+  // Function to create profile cards
+  function createProfileCard(profile) {
+    const card = document.createElement("div");
+    card.classList.add("profile-card");
+
+    const image = document.createElement("img");
+    image.src = profile.image;
+    card.appendChild(image);
+
+    const name = document.createElement("h2");
+    name.textContent = profile.name;
+    card.appendChild(name);
+
+    const age = document.createElement("p");
+    age.textContent = "price: " + profile.age;
+    card.appendChild(age);
+
+    const bio = document.createElement("p");
+    bio.textContent = profile.bio;
+    card.appendChild(bio);
+
+    return card;
+  }
+
+  // Function to render profile cards
+  function renderProfileCards(profiles) {
+    const container = document.getElementById("profile-container");
+    container.innerHTML = ""; // Clear previous content
+
+    profiles.forEach(profile => {
+      const card = createProfileCard(profile);
+      container.appendChild(card);
+    });
+  }
+
+  // Render profile cards when the page loads
+  window.addEventListener("DOMContentLoaded", () => {
+    renderProfileCards(profiles);
+  });
+</script>
+
+</body>
+</html>
